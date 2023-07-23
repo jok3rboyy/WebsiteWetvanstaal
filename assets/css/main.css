@@ -4084,6 +4084,7 @@ input, select, textarea {
 
 	@media screen and (max-width: 980px) {
 
+
 		#footer {
 			background-color: #ffffff;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
@@ -4119,6 +4120,7 @@ input, select, textarea {
 
 	@media screen and (max-width: 736px) {
 
+
 		#footer {
 			background-color: #ffffff;
 			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
@@ -4129,7 +4131,6 @@ input, select, textarea {
 			margin-top: -6.5em;
 			padding-top: 6.5em;
 		}
-
 			#footer .inner {
 				padding: 2em 2em 0.1em 2em ;
 			}
@@ -4146,16 +4147,16 @@ input, select, textarea {
 
 	@media screen and (max-width: 480px) {
 
-		#footer {
-			background-color: #ffffff;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
-			background-size: auto,
- cover;
-			background-position: center,
- center;
-			margin-top: -6.5em;
-			padding-top: 6.5em;
-		}
+		#footer .inner .copyright li {
+				background-color: #ffffff;
+				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
+				background-size: auto,
+	 cover;
+				background-position: center,
+	 center;
+				margin-top: -6.5em;
+				padding-top: 6.5em;
+			}
 
 			#footer .inner .copyright li:first-child {
 				margin-top: 0;
@@ -4166,7 +4167,14 @@ input, select, textarea {
 	@media screen and (max-width: 360px) {
 
 		#footer .inner {
-			padding: 2em 1.5em 0.1em 1.5em ;
-		}
 
+				background-color: #ffffff;
+				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
+				background-size: auto,
+	 cover;
+				background-position: center,
+	 center;
+				margin-top: -6.5em;
+				padding-top: 6.5em;
+			}
 	}
