@@ -3380,7 +3380,12 @@ input, select, textarea {
 	#banner {
 		padding: 10em 0 4.75em 0 ;
 
-
+		text-align: center;
+		padding: 12px;
+		text-decoration: none;
+		font-size: 18px;
+		line-height: 25px;
+		border-radius: 4px;
 	}
 
 		#banner .inner {
