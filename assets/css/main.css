@@ -3475,8 +3475,7 @@ width: fit-content;
 				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
 				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png.jpg");
-				height: fit-content;
-				width: fit-content;
+				background-size: auto,
  cover;
 				background-position: center,
  center;
@@ -3490,8 +3489,6 @@ width: fit-content;
 			#banner {
 				padding: 12em 3em 12.375em 3em ;
 				margin-bottom: -4.75em;
-				height: fit-content;
-width: fit-content;
 			}
 
 				#banner .inner {
@@ -3505,8 +3502,6 @@ width: fit-content;
 			#banner {
 				padding: 5em 2em 4.25em 2em ;
 				margin-bottom: -2.5em;
-				height: fit-content;
-width: fit-content;
 			}
 
 				#banner .logo {
