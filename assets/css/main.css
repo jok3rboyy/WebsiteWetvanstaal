@@ -3379,7 +3379,8 @@ input, select, textarea {
 
 	#banner {
 		padding: 10em 0 4.75em 0 ;
-
+height: fit-content;
+width: fit-content;
 		text-align: center;
 		padding: 12px;
 		text-decoration: none;
