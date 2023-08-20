@@ -109,6 +109,17 @@ input, select, textarea {
  center;
 	}
 
+	#Index{
+		background-color: #392849;
+		background-image: linear-gradient(to top, rgba(51, 45, 56, 0.8), rgba(51, 45, 56, 0.8)), url("../../images/BackgroundGrey.png");
+		background-size: auto,
+ cover;
+		background-attachment: fixed,
+ fixed;
+		background-position: center,
+ center;
+	}
+
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
