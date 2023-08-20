@@ -103,10 +103,11 @@ input, select, textarea {
 		background-image: linear-gradient(to top, rgba(51, 45, 56, 0.8), rgba(51, 45, 56, 0.8)), url("../../images/Logo_linksboven.png");
 		background-size: auto,
  cover;
-		background-attachment: fixed, fixed;	}
-
-		
-	
+		background-attachment: fixed,
+ fixed;
+		background-position: center,
+ center;
+	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -2408,11 +2409,6 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
-	
-	.kaas img {
-		width:100%;
-	}
-
 /* Image */
 
 	.image {
@@ -2421,7 +2417,6 @@ input, select, textarea {
 		display: inline-block;
 		position: relative;
 	}
-
 
 		.image img {
 			border-radius: 5px;
@@ -3474,11 +3469,10 @@ width: fit-content;
 			text-transform: uppercase;
 		}
 
-		@media screen and (width: auto)  {
+		@media screen and (max-width: 1280px) {
 
 			#banner {
-				display: block;
-				padding: 0em 0 0em 0 ;
+				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
 				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png.jpg");
 				background-size: auto,
@@ -3571,10 +3565,36 @@ width: fit-content;
 			width: 55em;
 		}
 
+		#wrapper > header h2 {
+			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			font-size: 2em;
+			margin-bottom: 0.8em;
+			padding-bottom: 0.4em;
+		}
 
+		#wrapper > header p {
+			font-family: Raleway, Helvetica, sans-serif;
+			font-size: 1em;
+			font-weight: 200;
+			letter-spacing: 0.1em;
+			line-height: 2;
+			text-transform: uppercase;
+		}
 
+	@media screen and (max-width: 1280px) {
 
+		#wrapper > header {
+			padding: 9em 0 6.25em 0 ;
+			background-color: #2e3141;
+			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
+			background-size: auto,
+ cover;
+			background-position: center,
+ 0% 30%;
+			margin-bottom: -6.5em;
+		}
 
+	}
 
 	@media screen and (max-width: 980px) {
 
@@ -3783,11 +3803,7 @@ width: fit-content;
 				-moz-flex-direction: row;
 				-webkit-flex-direction: row;
 				-ms-flex-direction: row;
-				flex-direction: row;fol
-			}
-			.wrapper.spotlight .image img {
-				width: 100%;
-				background-position: absolute;
+				flex-direction: row;
 			}
 
 			.wrapper.spotlight .image {
@@ -3802,8 +3818,6 @@ width: fit-content;
 					border-radius: 100%;
 					width: 100%;
 				}
-
-			
 
 			.wrapper.spotlight .content {
 				width: 100%;
@@ -4063,6 +4077,16 @@ width: fit-content;
 
 	@media screen and (max-width: 1280px) {
 
+		#footer {
+			background-color: #ffffff;
+			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/logo1.png");
+			background-size: auto,
+ cover;
+			background-position: center,
+ center;
+			margin-top: -6.5em;
+			padding-top: 6.5em;
+		}
 
 	}
 
