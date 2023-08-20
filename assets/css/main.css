@@ -110,6 +110,8 @@ input, select, textarea {
 			background-image: linear-gradient(to top, rgba(51, 45, 56, 0.8), rgba(51, 45, 56, 0.8)), url("../../images/BackgroundGrey.png");
 			background-size: auto,
 	 cover;
+	 width: 100%;
+	 height: auto;
 			background-attachment: fixed,
 	 fixed;
 			background-position: center,
@@ -3100,6 +3102,7 @@ input, select, textarea {
 		top: 0;
 		width: 100%;
 		z-index: 10000;
+		
 	}
 
 		#header h1 {
