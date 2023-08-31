@@ -3517,6 +3517,10 @@ width: fit-content;
 
 		}
 
+		img.scaled {
+			width: 100%;
+		  }
+
 		@media screen and (max-width: 736px) {
 
 			#banner {
