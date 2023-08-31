@@ -3519,7 +3519,12 @@ width: fit-content;
 
 		img.scaled {
 			width: 100%;
+			
 		  }
+
+		section.Mainlogo {
+			margin-right: auto;
+		}
 
 		@media screen and (max-width: 736px) {
 
