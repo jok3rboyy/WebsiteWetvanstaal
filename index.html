@@ -313,12 +313,10 @@
                         <p>Tel: +31 (0)6 53631115</p>
                     </div>
                 </div>
-                <form class="contact-form slide-in-right" action="https://formsubmit.co/7285f2dfef6cc9a7947fa0b34861d4a7" method="POST" id="contactForm">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="Nieuw contactformulier bericht - De Wet van Staal">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_next" value="https://dewetvanstaal.nl/bedankt">
+                <!-- Updated Form with Netlify Support -->
+                <form class="contact-form slide-in-right" name="contact" method="POST" data-netlify="true" action="/bedankt">
+                    <input type="hidden" name="form-name" value="contact">
+                    
                     <div class="form-group">
                         <label for="name">Naam *</label>
                         <input type="text" id="name" name="name" required aria-required="true" placeholder="Uw naam">
