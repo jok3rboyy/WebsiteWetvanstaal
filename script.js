@@ -1,4 +1,32 @@
+// Intersection Observer for scroll animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+};
+
+const handleIntersect = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
+        }
+    });
+};
+
+const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+// Start observing elements with animation classes
+const animateElements = () => {
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize animations
+    animateElements();
+    
     // Dark mode toggle
     const themeToggle = document.querySelector('.theme-toggle');
     const sunIcon = document.querySelector('.sun-icon');
