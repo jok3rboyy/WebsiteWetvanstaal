@@ -19,7 +19,15 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body data-theme="light">
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24">
+            <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2V4m0 16v-3m8-9h-3m-10 0H4m14.364 4.95l-2.12-2.122M7.757 16.243l-2.12 2.12M16.243 7.757l2.12-2.12M7.757 7.757L5.636 5.636"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" style="display: none;">
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/>
+        </svg>
+    </button>
     <header role="banner">
         <nav role="navigation" aria-label="Hoofdmenu">
             <div class="logo">
@@ -40,7 +48,21 @@
 
     <main role="main">
         <section id="home" class="hero" style="background-image: url('images/BackgroundGrey.png');">
-            <h1><img src="images/LogoBanner.png" alt="De Wet van Staal" class="hero-logo"></h1>
+            <h1 class="logo-container">
+                <div class="gear-container">
+                    <svg class="gear" viewBox="0 0 120 120">
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" />
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" transform="rotate(60 60 60)" />
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" transform="rotate(120 60 60)" />
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" transform="rotate(180 60 60)" />
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" transform="rotate(240 60 60)" />
+                        <path d="M60,25 L65,10 L55,10 L60,25 Z" transform="rotate(300 60 60)" />
+                        <circle cx="60" cy="60" r="40" />
+                        <circle cx="60" cy="60" r="35" fill="var(--bg-color)" />
+                    </svg>
+                </div>
+                <img src="images/LogoBanner.png" alt="De Wet van Staal" class="hero-logo">
+            </h1>
             <h2>Professioneel Lassen & Technisch Onderhoud</h2>
             <p>Vakkundig maatwerk door Harvey Meurs</p>
             <a href="#contact" class="cta-button">Neem Contact Op</a>

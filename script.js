@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Dark mode toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.dataset.theme = savedTheme;
+    updateThemeIcons(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.body.dataset.theme;
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.body.dataset.theme = newTheme;
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcons(newTheme);
+    });
+    
+    function updateThemeIcons(theme) {
+        if (theme === 'dark') {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+    }
+
     // Form Handling
     const contactForm = document.getElementById('contactForm');
     const submitButton = contactForm.querySelector('.submit-button');
@@ -238,14 +267,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function nextSlide() {
         if (currentIndex >= slides.length + 1) {
-            track.style.transition = 'none';
             currentIndex = 1;
+            track.style.transition = 'none';
             goToSlide(currentIndex);
-            setTimeout(() => {
-                track.style.transition = 'transform 0.5s ease-in-out';
-                currentIndex++;
-                goToSlide(currentIndex);
-            }, 10);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    currentIndex++;
+                    goToSlide(currentIndex);
+                });
+            });
         } else {
             currentIndex++;
             goToSlide(currentIndex);
@@ -254,14 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function prevSlide() {
         if (currentIndex <= 0) {
-            track.style.transition = 'none';
             currentIndex = slides.length;
+            track.style.transition = 'none';
             goToSlide(currentIndex);
-            setTimeout(() => {
-                track.style.transition = 'transform 0.5s ease-in-out';
-                currentIndex--;
-                goToSlide(currentIndex);
-            }, 10);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    currentIndex--;
+                    goToSlide(currentIndex);
+                });
+            });
         } else {
             currentIndex--;
             goToSlide(currentIndex);
