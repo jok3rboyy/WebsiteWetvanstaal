@@ -57,53 +57,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Form Handling
-    const contactForm = document.getElementById('contactForm');
-    const submitButton = contactForm.querySelector('.submit-button');
+    const contactForm = document.querySelector('form[name="contact"]');
+    if (contactForm) {
+        const submitButton = contactForm.querySelector('.submit-button');
 
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Validate form
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        const errors = validateForm(data);
-        
-        if (Object.keys(errors).length > 0) {
-            showFormErrors(errors);
-            return;
-        }
-
-        // Show loading state
-        submitButton.disabled = true;
-        submitButton.innerHTML = `
-            <span>Verzenden...</span>
-            <svg class="loading-spinner" viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
-            </svg>
-        `;
-
-        // Simulate form submission (replace with actual API call)
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
             
-            // Show success message
-            showFormSuccess();
-            contactForm.reset();
-        } catch (error) {
-            // Show error message
-            showFormError();
-        } finally {
-            // Reset button
-            submitButton.disabled = false;
+            // Validate form
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            const errors = validateForm(data);
+            
+            if (Object.keys(errors).length > 0) {
+                showFormErrors(errors);
+                return;
+            }
+
+            // Show loading state
+            submitButton.disabled = true;
             submitButton.innerHTML = `
-                <span>Verstuur Bericht</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                <span>Verzenden...</span>
+                <svg class="loading-spinner" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
                 </svg>
             `;
-        }
-    });
+
+            // Simulate form submission (replace with actual API call)
+            try {
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Show success message
+                showFormSuccess();
+                contactForm.reset();
+            } catch (error) {
+                // Show error message
+                showFormError();
+            } finally {
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.innerHTML = `
+                    <span>Verstuur Bericht</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                `;
+            }
+        });
+    }
 
     function validateForm(data) {
         const errors = {};
@@ -225,16 +227,15 @@ document.addEventListener('DOMContentLoaded', () => {
     track.appendChild(firstSlideClone);
     track.insertBefore(lastSlideClone, slides[0]);
 
-    // Calculate initial index to center the carousel
-    const initialIndex = Math.ceil(slides.length / 2);
-    let currentIndex = initialIndex;
+    // Set initial index to 1 (after the cloned last slide)
+    let currentIndex = 1;
     
     // Create dot indicators (excluding cloned slides)
     slides.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.classList.add('dot');
         dot.setAttribute('aria-label', `Ga naar slide ${index + 1}`);
-        if (index === initialIndex - 1) {
+        if (index === 0) {
             dot.classList.add('active');
             dot.setAttribute('aria-current', 'true');
         }
@@ -244,31 +245,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dots = Array.from(document.querySelectorAll('.dot'));
 
-    function updateSlides() {
-        const allSlides = Array.from(track.children);
-        allSlides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            // Add active class to current slide and its neighbors
-            if (index === currentIndex) {
-                slide.classList.add('active');
-            }
-        });
-    }
-
     function updateDots() {
         // Adjust for cloned slides in dot display
-        const actualIndex = currentIndex - 1;
-        const normalizedIndex = (actualIndex + slides.length) % slides.length;
+        const actualIndex = (currentIndex - 1 + slides.length) % slides.length;
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === normalizedIndex);
-            dot.setAttribute('aria-current', index === normalizedIndex);
+            dot.classList.toggle('active', index === actualIndex);
+            dot.setAttribute('aria-current', index === actualIndex);
         });
     }
 
     function goToSlide(index) {
         // Calculate the transform considering the slide width and centering
         const slideWidth = window.innerWidth <= 768 ? 100 : 33.333;
-        const offset = slideWidth * (index - 1);
+        const offset = slideWidth * (index);
         track.style.transform = `translateX(-${offset}%)`;
         currentIndex = index;
         
@@ -276,8 +265,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const allSlides = Array.from(track.children);
         allSlides.forEach((slide, i) => {
             slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
+            // On mobile, make current slide active
+            // On desktop, make the center slide active
+            if (window.innerWidth <= 768) {
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            } else {
+                // On desktop, active slide should be in the center
+                if (i === index + 1) {
+                    slide.classList.add('active');
+                }
             }
         });
         
@@ -330,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial setup
-    goToSlide(currentIndex);
+    goToSlide(1); // Start at first real slide (after clone)
 
     // Event listeners
     nextButton.addEventListener('click', () => {
