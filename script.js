@@ -2,7 +2,7 @@
 function redirectToThankYou(event) {
     event.preventDefault(); // Prevent default form submission
     document.forms["contact"].submit(); // Manually submit the form
-    window.location.href = "/bedankt"; // Redirect after submission
+    window.location.href = "bedankt.html"; // Redirect after submission using relative URL
 }
 
 // Intersection Observer for scroll animations
@@ -72,48 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         const submitButton = contactForm.querySelector('.submit-button');
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Validate form
+        // We're using the redirectToThankYou function for form submission now
+        // This validation is still useful though
+        contactForm.addEventListener('input', () => {
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
             const errors = validateForm(data);
             
             if (Object.keys(errors).length > 0) {
                 showFormErrors(errors);
-                return;
-            }
-
-            // Show loading state
-            submitButton.disabled = true;
-            submitButton.innerHTML = `
-                <span>Verzenden...</span>
-                <svg class="loading-spinner" viewBox="0 0 50 50">
-                    <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
-                </svg>
-            `;
-
-            // Simulate form submission (replace with actual API call)
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Show success message
-                showFormSuccess();
-                contactForm.reset();
-            } catch (error) {
-                // Show error message
-                showFormError();
-            } finally {
-                // Reset button
-                submitButton.disabled = false;
-                submitButton.innerHTML = `
-                    <span>Verstuur Bericht</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                `;
+            } else {
+                // Clear any error messages if the form is valid
+                document.querySelectorAll('.error-message').forEach(el => el.remove());
+                document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
             }
         });
     }

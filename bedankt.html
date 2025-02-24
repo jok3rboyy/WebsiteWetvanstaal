@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedankt - De Wet van Staal</title>
+    <meta name="description" content="Bedankt voor uw bericht. We nemen zo spoedig mogelijk contact met u op.">
+    <meta name="author" content="Harvey Meurs">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body data-theme="light">
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24">
+            <path d="M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0-2V4m0 16v-3m8-9h-3m-10 0H4m14.364 4.95l-2.12-2.122M7.757 16.243l-2.12 2.12M16.243 7.757l2.12-2.12M7.757 7.757L5.636 5.636"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" style="display: none;">
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/>
+        </svg>
+    </button>
+    <header role="banner">
+        <nav role="navigation" aria-label="Hoofdmenu">
+            <div class="logo">
+                <img src="images/LogoBanner.png" alt="De Wet van Staal Logo" width="200" height="50">
+            </div>
+            <button class="menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="main-menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul id="main-menu" role="menubar">
+                <li role="none"><a href="index.html#home" role="menuitem">Home</a></li>
+                <li role="none"><a href="index.html#diensten" role="menuitem">Diensten</a></li>
+                <li role="none"><a href="index.html#portfolio" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="index.html#over" role="menuitem">Over Mij</a></li>
+                <li role="none"><a href="index.html#contact" role="menuitem">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="thank-you fade-in">
+            <div class="container">
+                <h1>Bedankt voor uw bericht!</h1>
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <p>We hebben uw bericht in goede orde ontvangen.</p>
+                <p>We nemen zo spoedig mogelijk contact met u op.</p>
+                <a href="index.html" class="cta-button">Terug naar Home</a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 De Wet van Staal - KvK: 90320743</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

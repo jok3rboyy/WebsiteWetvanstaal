@@ -151,6 +151,55 @@
     transform: scale(1);
 }
 
+/* Thank you page styles */
+.thank-you {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.thank-you .container {
+    max-width: 600px;
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px var(--card-shadow);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.thank-you h1 {
+    color: var(--primary-grey);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.thank-you p {
+    color: var(--secondary-grey);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.success-icon {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.success-icon svg {
+    width: 80px;
+    height: 80px;
+    color: #4CAF50;
+    stroke-width: 1.5;
+}
+
+.thank-you .cta-button {
+    margin-top: 2rem;
+}
+
 /* Rest of the existing styles */
 * {
     margin: 0;
