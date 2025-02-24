@@ -151,6 +151,11 @@
     transform: scale(1);
 }
 
+/* Hidden elements */
+.hidden {
+    display: none;
+}
+
 /* Thank you page styles */
 .thank-you {
     min-height: 70vh;

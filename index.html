@@ -314,9 +314,11 @@
                     </div>
                 </div>
                 <!-- Updated Form with Netlify Support -->
-                <form class="contact-form slide-in-right" name="contact" method="POST" data-netlify="true" onsubmit="redirectToThankYou(event)">
+                <form class="contact-form slide-in-right" name="contact" method="POST" data-netlify="true" action="/bedankt.html" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact">
-                    <input type="hidden" name="_captcha" value="false">
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
                     <div class="form-group">
                         <label for="name">Naam *</label>
                         <input type="text" id="name" name="name" required aria-required="true" placeholder="Uw naam">
