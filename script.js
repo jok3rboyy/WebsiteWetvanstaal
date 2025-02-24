@@ -1,3 +1,10 @@
+// Function to handle form submission and redirect
+function redirectToThankYou(event) {
+    event.preventDefault(); // Prevent default form submission
+    document.forms["contact"].submit(); // Manually submit the form
+    window.location.href = "/bedankt"; // Redirect after submission
+}
+
 // Intersection Observer for scroll animations
 const observerOptions = {
     root: null,
@@ -13,6 +20,10 @@ const handleIntersect = (entries, observer) => {
         }
     });
 };
+
+
+
+
 
 const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
@@ -396,6 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
             goToSlide(currentIndex);
         }
     });
+
 
     // Auto advance slides every 5 seconds if user hasn't disabled motion and isn't on mobile
     let autoAdvance;
