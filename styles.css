@@ -795,6 +795,21 @@ footer {
     margin-top: 4rem;
 }
 
+.creator-link {
+    margin-top: 0.5rem;
+    font-size: 12px;
+}
+
+.creator-link a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.creator-link a:hover {
+    color: #ff4500;
+}
+
 /* Responsive styles */
 @media (max-width: 1024px) {
     .carousel-slide {
